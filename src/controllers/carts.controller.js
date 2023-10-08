@@ -46,10 +46,13 @@ class CartsController {
             const { first_name } = req.session.user
             const { last_name } = req.session.user
             const email = req.session.user.email
-            Products.codi = cid
+            
             let userDB = await userModel.findOne({ email })
             let role = userDB.role
             let cartID = userDB.cartID
+            Products.cid=cid
+
+
             res.render('cart', {
                 first_name,
                 last_name,
@@ -58,6 +61,7 @@ class CartsController {
                 role,
                 cid,
                 cartID,
+                cart,
 
 
 
